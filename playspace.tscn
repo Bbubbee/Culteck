@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://gq3bqv8otyrh"]
+
+[ext_resource type="Script" path="res://playspace.gd" id="1_f820v"]
+[ext_resource type="Texture2D" uid="uid://khd7jefq7b8u" path="res://Assets/Background/redLovecraftBG.jpg" id="2_epbmc"]
+[ext_resource type="Script" path="res://Deck.gd" id="3_to6pp"]
+[ext_resource type="Texture2D" uid="uid://byl0304514nnb" path="res://Assets/Cards/Card Borders etc/Back_Texture.png" id="4_hu7va"]
+[ext_resource type="Texture2D" uid="uid://csy6g444lvmyj" path="res://Assets/Cards/Card Borders etc/Gold_Border.png" id="5_vyvcm"]
+[ext_resource type="Script" path="res://DeckDraw.gd" id="6_ue18i"]
+
+[node name="Playspace" type="Node2D"]
+script = ExtResource("1_f820v")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(584, 324)
+scale = Vector2(0.612789, 0.612789)
+texture = ExtResource("2_epbmc")
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(28, 433)
+script = ExtResource("3_to6pp")
+
+[node name="DeckDraw" type="TextureButton" parent="Deck"]
+offset_right = 40.0
+offset_bottom = 56.0
+texture_normal = ExtResource("4_hu7va")
+texture_pressed = ExtResource("4_hu7va")
+texture_hover = ExtResource("4_hu7va")
+texture_disabled = ExtResource("5_vyvcm")
+script = ExtResource("6_ue18i")
