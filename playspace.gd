@@ -44,20 +44,19 @@ func drawCard():
 	ovalAngleVector = Vector2(hor_rad*cos(angle), - ver_rad*sin(angle))
 	newCard.startPos = $Deck.position - CARDSIZE/2
 	newCard.targetPos = centreCardOval + ovalAngleVector - CARDSIZE
+	newCard.cardPos = newCard.targetPos
 	# Rotate card each card as it follows the curve 
 	newCard.startRot = 0
 	newCard.targetRot = (PI/2 - angle)/4
 	
-	
-#	cardNumber += 1 
-	
+	# Check all cards in hand: 
+	# Either draws the card OR reorganises hand
 	cardNumber = 0
 	for card in $Cards.get_children():
 		# Angle card on oval
 		angle = PI/2 + cardSpread*(float(numberCardsHand)/2 - cardNumber)
-		# Move card from deck to hand 
+		# Move card
 		ovalAngleVector = Vector2(hor_rad*cos(angle), - ver_rad*sin(angle))
-		
 		card.targetPos = centreCardOval + ovalAngleVector - CARDSIZE
 		# Rotate card each card as it follows the curve 
 		card.startRot = card.rotation

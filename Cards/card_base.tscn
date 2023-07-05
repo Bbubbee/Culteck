@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://uwncb1iarcbb"]
+[gd_scene load_steps=7 format=3 uid="uid://uwncb1iarcbb"]
 
 [ext_resource type="Script" path="res://Cards/card_base.gd" id="1_atfdk"]
 [ext_resource type="Texture2D" uid="uid://0o0o1brq5o12" path="res://Assets/Cards/Card Borders etc/cardborder.png" id="2_n2nbe"]
 [ext_resource type="Texture2D" uid="uid://tptdvlxm1skq" path="res://Assets/Cards/Card Borders etc/background shade.png" id="3_2v5c3"]
 [ext_resource type="FontFile" uid="uid://dvll3ylco3stl" path="res://Assets/font/Comfortaa-Bold.ttf" id="4_gybmp"]
 [ext_resource type="Texture2D" uid="uid://byl0304514nnb" path="res://Assets/Cards/Card Borders etc/Back_Texture.png" id="5_dix31"]
+[ext_resource type="Texture2D" uid="uid://csy6g444lvmyj" path="res://Assets/Cards/Card Borders etc/Gold_Border.png" id="6_6auxk"]
 
 [node name="CardBase" type="MarginContainer"]
 offset_right = 250.0
@@ -163,3 +164,11 @@ layout_mode = 2
 [node name="CardBack" type="Sprite2D" parent="."]
 texture = ExtResource("5_dix31")
 centered = false
+
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+texture_hover = ExtResource("6_6auxk")
+stretch_mode = 0
+
+[connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
+[connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]

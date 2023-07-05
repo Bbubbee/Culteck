@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://DeckDraw.gd" id="6_ue18i"]
 
 [node name="Playspace" type="Node2D"]
+position = Vector2(-3, 3)
 script = ExtResource("1_f820v")
 
 [node name="Background" type="Sprite2D" parent="."]
