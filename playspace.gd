@@ -48,9 +48,11 @@ func drawCard():
 	# Rotate card each card as it follows the curve 
 	newCard.startRot = 0
 	newCard.targetRot = (PI/2 - angle)/4
+	newCard.cardRot = newCard.targetRot
 	
 	# Check all cards in hand: 
 	# Either draws the card OR reorganises hand
+	newCard.cardNum = numberCardsHand  # Used to ID itself
 	cardNumber = 0
 	for card in $Cards.get_children():
 		# Angle card on oval
@@ -58,10 +60,13 @@ func drawCard():
 		# Move card
 		ovalAngleVector = Vector2(hor_rad*cos(angle), - ver_rad*sin(angle))
 		card.targetPos = centreCardOval + ovalAngleVector - CARDSIZE
+		card.cardPos = card.targetPos  # Cards default pos 
 		# Rotate card each card as it follows the curve 
 		card.startRot = card.rotation
 		card.targetRot = (PI/2 - angle)/4
+		card.cardRot = card.targetRot
 		
+		card.cardNum = cardNumber  # Used to ID itself 
 		cardNumber += 1 
 		
 		if card.state == InHand: 
